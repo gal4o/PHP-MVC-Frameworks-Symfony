@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customer sales</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Name:</th>
+            <td>{{ customer.name }}</td>
+        </tr>
+        <tr>
+            <th>Cars count:</th>
+            <td>{{ customer.numberOfSales }}</td>
+
+        </tr>
+        <tr>
+            <th>Spent money:</th>
+            <td>{{ customer.totalMoney }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+

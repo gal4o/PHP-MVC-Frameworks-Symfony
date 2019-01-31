@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cars list with parts</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>make</th>
+            <th>model</th>
+            <th>distance</th>
+            <th colspan="5">parts</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for car in cars %}
+            <tr>
+                <td>{{ car.id }}</td>
+                <td>{{ car.make }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.travelledDistance }}</td>
+                    {% for part in car.parts %}
+                <td>{{ part.getName }}-{{ part.getPrice }}</td>
+                    {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
+
+
+

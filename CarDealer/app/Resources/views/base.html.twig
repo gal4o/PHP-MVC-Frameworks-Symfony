@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}CarDealer{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    {% block header %}
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ path('homepage') }}">
+                            HOME
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('customers_all', {'ord' : 'ascending'}) }}">
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('sales_all') }}">
+                            Sales
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('sales', {'id':'discounted'}) }}">
+                            Discounted Sales
+                        </a><br>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    {% endblock %}
+    <div id="container">
+        {% block body %}{% endblock %}
+    </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
