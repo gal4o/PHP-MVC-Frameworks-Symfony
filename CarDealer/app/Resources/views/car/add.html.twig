@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('car_add') }}" method="POST">
+        <fieldset>
+            <legend>New Car</legend>
+
+            <div>
+                <label for="car_make">Car Make</label>
+                <input type="text" id="car_make" placeholder="Car Make"
+                       name="car[make]">
+            </div>
+            <div>
+                <label for="car_model">Car Model</label>
+                <input type="text" id="car_model" placeholder="Car Model"
+                       name="car[model]">
+            </div>
+            <div>
+                <label for="travelledDistance">Travelled Distance</label>
+                <input type="text" id="travelledDistance" placeholder="Travelled Distance"
+                       name="car[travelledDistance]">
+            </div>
+            <div>
+                <label for="car_parts">Parts</label>
+                    <select aria-multiselectable="true" multiple="multiple" name="parts[]">
+                        <option></option>
+                        {% for part in parts %}
+                            <option value="{{ part.id }}">{{ part.name }}</option>
+                        {% endfor %} }}
+                    </select>
+            </div>
+            {{ form_row(form._token) }}
+
+            <div>
+                <a class="btn" href="{{ path('homepage') }}">Cancel</a>
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
+

@@ -1,26 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <button class="btn">
+        <a href="{{ path('customer_add') }}">
+            Add Customer
+        </a><br>
+    </button>
     <h1>Customers list</h1>
 
     <table border="1">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Birthdate</th>
+                <th>Birth date</th>
                 <th>Is young driver</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
         {% for customer in customers %}
             <tr>
                 <td>{{ customer.name }}</td>
-                <td>{% if customer.birthDate %}{{ customer.birthDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if customer.birthDate %}{{ customer.birthDate|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if customer.isYoungDriver %}Yes{% else %}No{% endif %}</td>
+                <td><a href="{{ path('customer_edit', {'id': customer.id}) }}">Edit</a> </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    
 {% endblock %}

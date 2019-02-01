@@ -61,6 +61,34 @@ class Part
     }
 
     /**
+     * @param Car[]|ArrayCollection $cars
+     */
+    public function setCars($cars)
+    {
+        $this->cars = $cars;
+    }
+
+
+
+    /**
+     * @param Supplier $supplier
+     */
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
+    }
+
+
+    /**
+     * @return Supplier
+     */
+    public function getSupplier()
+    {
+        return $this->supplier;
+    }
+
+
+    /**
      * @return Car[]|ArrayCollection
      */
     public function getCars()

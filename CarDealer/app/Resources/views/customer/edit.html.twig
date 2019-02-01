@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <form class="form-horizontal" action="{{ path('customer_edit', {id:customer.id}) }}" method="POST">
+            <fieldset>
+                <legend>Edit Customer</legend>
+
+                <div class="form-group">
+                    <label  for="customer_name">Customer Name</label>
+                        <input type="text" id="customer_name" placeholder="Customer Name"
+                               name="customer[name]" value="{{ customer.name }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer_birthDate">Customer Birth Date</label>
+                        <input type="date" id="customer_birthDate"
+                                  name="customer[birthDate]" value="{{ customer.birthDate|date('Y-m-d') }}">
+                </div>
+
+                {{ form_row(form._token) }}
+
+                <div class="form-group">
+                        <a class="btn" href="{{ path('customers_all', {ord: 'ascending'}) }}">Cancel</a>
+                        <button type="submit" class="btn">Edit</button>
+                </div>
+            </fieldset>
+        </form>
+{% endblock %}
+

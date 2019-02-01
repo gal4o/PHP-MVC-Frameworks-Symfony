@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    <code>
+    <button class="btn">
+        <a href="{{ path('car_add') }}">
+            Add Cars
+        </a><br>
+    </button>
     <h1>Cars list</h1>
 
     <table border="1">
@@ -22,6 +27,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </code>
 {% endblock %}
 

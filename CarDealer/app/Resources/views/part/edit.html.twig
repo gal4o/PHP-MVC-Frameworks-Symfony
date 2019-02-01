@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('part_edit', {id: part.id}) }}" method="POST">
+        <fieldset>
+            <legend>Edit Part</legend>
+
+            <div>
+                <label for="part_name">Part Name</label>
+                <input type="text" id="part_name" placeholder="Part Name"
+                       name="part[name]" value="{{ part.name }}" disabled>
+            </div>
+            <div>
+                <label for="part_price">Part Price</label>
+                <input type="text" id="part_price" placeholder="Part Price"
+                       name="part[price]" value="{{ part.price }}">
+            </div>
+            <div>
+                <label for="quantity">Part Quantity</label>
+                <input type="text" id="quantity" placeholder="Part Quantity"
+                       name="part[quantity]" value="{{ part.quantity }}">
+            </div>
+            <div>
+                <label for="supplier">Part Supplier</label>
+                <select name="supplier" disabled>
+                    <option value="{{ part.supplier.name }}"></option>
+                </select>
+            </div>
+            {{ form_row(form._token) }}
+
+            <div>
+                <a class="btn" href="{{ path('parts_all') }}">Cancel</a>
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

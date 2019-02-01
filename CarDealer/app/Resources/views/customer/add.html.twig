@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+            <form action="{{ path('customer_add') }}" method="POST">
+                <fieldset>
+                    <legend>New Customer</legend>
+
+                    <div>
+                        <label for="customer_name">Customer Name</label>
+                            <input type="text" id="customer_name" placeholder="Customer Name"
+                                   name="customer[name]">
+                    </div>
+                    <div>
+                        <label for="customer_birthDate">Birth Date</label>
+                            <input type="date" id="customer_birthDate" placeholder="Customer BirthDate"
+                            name="customer[birthDate]">
+                    </div>
+
+                    {{ form_row(form._token) }}
+
+                    <div>
+                            <a class="btn" href="{{ path('customers_all', {'ord':'ascending'}) }}">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+{% endblock %}
+

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <button class="btn">
+        <a href="{{ path('part_add') }}">
+            Add Part
+        </a><br>
+    </button>
+
+    <h1>Parts list</h1>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Supplier</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for part in parts %}
+            <tr>
+                <td>{{ part.name }}</td>
+                <td>{{ part.price }} </td>
+                <td>{{ part.quantity }}</td>
+                <td>{{ part.supplier.name }}</td>
+                <td><a href="{{ path('part_edit', {'id': part.id}) }}">Edit</a> </td>
+                <td><a href="{{ path('part_delete', {'id': part.id}) }}">Delete</a> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
